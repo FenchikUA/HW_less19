@@ -1,0 +1,19 @@
+<div *ngIf="!loading" class="all">
+  <div class="mysearch">
+    <input type="text" placeholder="search" [(ngModel)]="searchStr">
+  </div>
+  <div class="block-country-all">
+    <div *ngFor="let todo of todosService.todos.slice(170, 185) | todosSearch: searchStr; let i = index"
+      class="block-country">
+      <img src={{todo.flag}} alt="">
+      <div class="block-country-right">
+        <h2>{{todo.name}}</h2>
+        <div>
+          <p>Capital: <b>{{todo.capital}}</b></p>
+          <p>Population: <b>{{todo.population}}</b></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p *ngIf="loading" class="loading">Loading list.....</p>
